@@ -1,0 +1,54 @@
+---
+title: "Main Pipeline Script"
+format: html
+execute:
+  echo: true
+---
+
+> _Edit this document to match your actual data and processing steps._
+
+
+# Main Pipeline Script
+
+This Quarto document serves as the main script to run the pipeline. It will:
+- Input data
+- Run validation and processing functions
+- Output results
+
+## 1. Load Libraries
+
+```{python}
+import pandas as pd
+from scripts.validation_modules import compare_columns
+from scripts.processing_modules import calculate_column_mean
+```
+
+## 2. Input Data
+
+```{python}
+# Specify the path to your Excel file
+data_path = "data/input_data.xlsx"  # Update with your actual file name
+
+# Load data for processing
+input_df = pd.read_excel(data_path)
+```
+
+## 3. Run Processing Functions
+
+```{python}
+# Example: Calculate the mean of a column (update 'column_name' as needed)
+mean_value = calculate_column_mean(input_df, 'column_name')
+print(f"Mean value: {mean_value}")
+```
+
+## 4. Output Results
+
+```{python}
+# Save results to a new Excel file or CSV
+output_path = "data/output_results.xlsx"
+input_df['mean_value'] = mean_value
+input_df.to_excel(output_path, index=False)
+print(f"Results saved to {output_path}")
+```
+
+---

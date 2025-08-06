@@ -1,0 +1,41 @@
+---
+title: "Data Input Validation"
+format: html
+execute:
+  echo: true
+---
+
+> _Edit this document to match your actual data file and validation requirements._
+
+# Data Input Validation
+
+This Quarto document validates input data using the missing data function from the validation modules.
+
+## 1. Load Libraries
+
+```{python}
+import pandas as pd
+import warnings
+from scripts.validation_modules import validate_and_warn_missing
+```
+
+## 2. Specify Data File
+
+```{python}
+data_path = "data/input_data.xlsx"  # Update with your actual file name
+```
+
+## 3. Validate Data for Missing Values
+
+```{python}
+# Find rows with missing values and print them so they can be checked manually
+validate_and_warn_missing(data_path)
+```
+
+
+##
+
+[Continue to Main Pipeline &rarr;](main_pipeline.qmd)
+
+
+
