@@ -1,3 +1,7 @@
+# 🚧 Work in Progress 🚧
+
+> This project is currently under active development and has not been reviewed for production use.
+
 # Reproducible analytical pipeline repository template for international projects
 
 ## About 
@@ -25,7 +29,7 @@ LICENSE
 - `readme_template.md`: A readme template designed to be modified by the user to provide an overview of the project, its purpose, and main features.
 - `data_input_validation.qmd`: This document serves as one of the master scripts of the pipeline. It is run before `main_pipeline.qmd` to ensure that all data inputs are validated before processing.
 - `main_pipeline.qmd`: This document serves as the main script of the pipeline, where
-- LICENSE: This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- `LICENSE`: This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Prerequisites
 
