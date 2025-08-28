@@ -13,8 +13,6 @@ __pycache__/
 # Virtual environment
 .venv/
 
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
 
 # Data directory
 data/
