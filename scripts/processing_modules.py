@@ -4,29 +4,31 @@ Processing Modules
 This module contains functions that perform the main processing steps of the pipeline.
 These functions should intake validated data, perform calculations or transformations,
 and output the results. Data passed to these functions should already be validated.
-
-Example: A function that calculates the mean of a numeric column in a DataFrame.
 """
 
 import pandas as pd
 
-def calculate_column_mean(df: pd.DataFrame, column: str) -> float:
+def calculate_row_means(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
     """
-    Calculates the mean of a specified numeric column in the DataFrame.
+    Calculates the mean across specified numeric columns for each row and adds the result to a new column 'mean'.
 
     Args:
         df (pd.DataFrame): The validated input DataFrame.
-        column (str): The name of the column to calculate the mean for.
+        columns (list[str]): The list of column names to calculate the mean across.
 
     Returns:
-        float: The mean value of the column.
+        pd.DataFrame: The DataFrame with a new column 'mean' containing the row-wise means.
 
     Raises:
-        KeyError: If the column does not exist in the DataFrame.
-        TypeError: If the column is not numeric.
+        KeyError: If any column does not exist in the DataFrame.
+        TypeError: If any column is not numeric.
     """
-    if column not in df.columns:
-        raise KeyError(f"Column '{column}' not found in DataFrame.")
-    if not pd.api.types.is_numeric_dtype(df[column]):
-        raise TypeError(f"Column '{column}' must be numeric.")
-    return df[column].mean()
+    missing_cols = [col for col in columns if col not in df.columns]
+    if missing_cols:
+        raise KeyError(f"Columns {missing_cols} not found in DataFrame.")
+    non_numeric = [col for col in columns if not pd.api.types.is_numeric_dtype(df[col])]
+    if non_numeric:
+        raise TypeError(f"Columns {non_numeric} must be numeric.")
+    df = df.copy()
+    df["mean"] = df[columns].mean(axis=1)
+    return df
