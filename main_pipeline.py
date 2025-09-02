@@ -1,20 +1,20 @@
 import pandas as pd
-from scripts.validation_modules import validate_no_missing_values_excel
-from scripts.processing_modules import calculate_column_mean
+from scripts.validation_modules import validate_and_warn_missing
+from scripts.processing_modules import calculate_row_means
+from config import revised_data_path, output_path
 
-# Input Data
+def main():
+    # check there are no missing values
+    validate_and_warn_missing(revised_data_path)
+    input_df = pd.read_excel(revised_data_path)
 
-data_path = 'data/input_data.xlsx'  # Update with your actual file name
-validate_no_missing_values_excel(data_path)
-input_df = pd.read_excel(data_path)
+    # Run Processing Functions
+    # Example: Calculate the mean of a row across specified columns
+    output_df = calculate_row_means(input_df, ['Value1', 'Value2'])
 
-# Run Processing Functions
-# Example: Calculate the mean of a column (update 'Value1' as needed)
-mean_value = calculate_column_mean(input_df, 'Value1')
-print(f'Mean value: {mean_value}')
+    # Output Results
+    output_df.to_excel(output_path, index=False)
+    print(f'Results saved to {output_path}')
 
-# Output Results
-output_path = 'data/output_results.xlsx'
-input_df['mean_value'] = mean_value
-input_df.to_excel(output_path, index=False)
-print(f'Results saved to {output_path}')
+if __name__ == "__main__":
+    main()
