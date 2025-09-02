@@ -14,7 +14,7 @@ integrity standards before processing. This helps to:
 """
 
 import pandas as pd
-import warnings
+import pathlib
 import os
 from datetime import datetime
 def validate_and_warn_missing(excel_path, sheet_name=0, columns=None):
@@ -53,20 +53,18 @@ def validate_and_warn_missing(excel_path, sheet_name=0, columns=None):
         print("Rows with missing values:")
         rows_with_missing = df[df[missing_cols.index].isnull().any(axis=1)]
         print(rows_with_missing)
-        warnings.warn("Data contains missing values. Please review the output above.")
 
         # Save revised file
         base, ext = os.path.splitext(excel_path)
         datestamp = datetime.now().strftime("%Y%m%d")
         revised_path = f"{base}_revised{datestamp}{ext}"
         df.to_excel(revised_path, index=False)
-        # Print clickable link (works in Jupyter and some terminals)
-        print(f"Revised file saved: {revised_path}")
-        print(f"Click here to open: file://{os.path.abspath(revised_path)}")
+        # Print clickable link
+        revised_path_abs = pathlib.Path(revised_path).resolve().as_uri()
+        print(f"Click here to open: {revised_path_abs}")
     else:
         print("No missing values found. Data is valid.")
-
-
+        
 
 def compare_columns(df: pd.DataFrame, col1: str, col2: str) -> pd.Series:
     """
