@@ -55,6 +55,13 @@ cd <project-directory>
 
 # Create a virtual environment in the terminal
 python -m venv venv
+
+# Activate the virtual environment
+# On Windows:
+.\venv\Scripts\activate
+
+# On macOS and Linux:
+source venv/bin/activate
 ```
 
 3. Install the required packages:
@@ -62,17 +69,14 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-
 ## Usage
 
 > _Explain how to use the scripts or modules. Include example commands or code snippets._
 
-### Running the pipeline
 
 ### Development
 
-> _Describe how others can contribute to the project. Include guidelines for code style, pull requests, and reporting issues._
-
+> _Describe how developers can contribute to the project. This should include instructions on which branch to start with, how to create pull requests._
 
 
 ## Contact
