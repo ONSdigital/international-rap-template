@@ -1,8 +1,7 @@
 import pandas as pd
 import warnings
 from scripts.validation_modules import validate_and_warn_missing
-
-data_path = "data/input_data.xlsx"  # Update with your actual file name
+from config import data_path
 
 # Find rows with missing values and print them so they can be checked manually
 def main():
