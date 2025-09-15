@@ -5,6 +5,10 @@
 # (such as build artifacts, virtual environments, or temporary files) from being
 # tracked in your repository. Edit this file to add or remove patterns as needed.
 
+# Ignore personal .gitconfigs
+.gitconfig
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -16,7 +20,25 @@ __pycache__/
 
 # Data directory
 data/
+outputs/
+
+# Office documents
+*.xlsx
+*.xls
+*.docx
+*.doc
+*.pptx
+*.ppt
+*.html
+
+# Images and media
+*.png
+*.jpg
+*.jpeg
 
 # OS files
 .DS_Store
 Thumbs.db
+
+# VS Code settings
+.vscode
