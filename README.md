@@ -5,14 +5,20 @@
 # Reproducible analytical pipeline repository template for international projects
 
 ## About 
-This is a template for creating a simplified version of a reproducible analytical pipeline, specifically designed with international stakeholders in mind. It provides a structured approach to organising code, data, and documentation, ensuring that all components are easily understood.
+This is a template for creating a simplified version of a [Reproducible Analytical Pipeline (RAP)](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/), specifically designed with external (non-ONS) stakeholders in mind, in particular international partners. It provides a structured approach to organising code, data, and documentation, ensuring that all components are easily understood.
+
+This template is deliberately "bare-bones" and aimed at users new to both RAP and version control. As such it (currently) does not include advanced features such as pre-commits, automated testing, continuous integration, or containerization. We expect the user to extend the template to include these for deployment in operational settings.  
+
+As part of the template, we provide an example that demonstrates how the structure can be used as basic pipeline. This covers basic data validation and processing steps, showcasing how to organise code and data effectively (see "Running the Example" below) - this also serves as a high level demonstration of RAP in general.
+
+We strongly suggest users of this template familiarise themselves with both general [RAP principles](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/), as well as [quality standards for code and analysis](https://best-practice-and-impact.github.io/qa-of-code-guidance/intro.html). A collection of useful resources can be found [here](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/reproducible-analytical-pipeline-rap-champions/#useful-links:~:text=Useful%20links-,Blog%20posts,-The%20Government%20Digital).
 
 ## Repository Structure
 
 ```plaintext
 README.md
 data/
-demonstrtation_data/
+demonstration_data/
 │   ├── input_data.xlsx
 outputs/
 scripts/
